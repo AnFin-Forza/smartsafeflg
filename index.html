@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>SmartSafe Forza</title>
+    
+    <!-- Configuración PWA -->
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <link rel="apple-touch-icon" href="icon.png">
+    <link rel="manifest" href="manifest.json">
+
+    <style>
+        body {
+            font-family: -apple-system, sans-serif;
+            background-color: #f4f4f7;
+            margin: 0;
+            color: #333;
+        }
+        .header {
+            background-color: #DA121A;
+            color: white;
+            padding: 40px 20px;
+            text-align: center;
+        }
+        .container { padding: 20px; }
+        
+        /* Tarjetas */
+        .card {
+            background: white;
+            padding: 20px;
+            border-radius: 15px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.05);
+            margin-top: -30px;
+        }
+
+        /* Tabla de Tarifas */
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 15px;
+        }
+        th { background: #435261; color: white; padding: 10px; text-align: left; font-size: 12px; }
+        td { padding: 12px 10px; border-bottom: 1px solid #eee; font-size: 14px; }
+
+        /* Botones */
+        .btn {
+            background-color: #435261;
+            color: white;
+            padding: 15px;
+            text-align: center;
+            border-radius: 10px;
+            text-decoration: none;
+            display: block;
+            margin-top: 20px;
+            font-weight: bold;
+            border: none;
+            width: 100%;
+        }
+        .btn-back { background: none; color: #DA121A; border: none; margin-top: 15px; cursor: pointer; }
+
+        /* Lógica para ocultar secciones */
+        .seccion { display: none; }
+        .activa { display: block; }
+    </style>
+</head>
+<body>
+
+    <div class="header">
+        <h1>FORZA</h1>
+        <div style="font-size: 12px; opacity: 0.8;">CASH LOGISTICS</div>
+    </div>
+
+    <div class="container">
+        
+        <!-- SECCIÓN 1: INICIO -->
+        <div id="inicio" class="seccion activa">
+            <div class="card">
+                <h3>SmartSafe Forza</h3>
+                <p>Bienvenido al sistema de consulta regional de tarifas y escenarios financieros.</p>
+                <button class="btn" onclick="mostrarSeccion('tarifas')">Ver Tarifas 2026</button>
+            </div>
+        </div>
+
+        <!-- SECCIÓN 2: TARIFARIO -->
+        <div id="tarifas" class="seccion">
+            <div class="card">
+                <h3>Tarifario Regional</h3>
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Región</th>
+                            <th>Tarifa</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr><td>Central</td><td>$350.00</td></tr>
+                        <tr><td>Occidente</td><td>$375.00</td></tr>
+                        <tr><td>Norte</td><td>$390.00</td></tr>
+                    </tbody>
+                </table>
+                <button class="btn-back" onclick="mostrarSeccion('inicio')">← Volver al menú</button>
+            </div>
+        </div>
+
+    </div>
+
+    <script>
+        function mostrarSeccion(idSeccion) {
+            // Ocultamos todas las secciones
+            document.querySelectorAll('.seccion').forEach(sec => {
+                sec.classList.remove('activa');
+            });
+            // Mostramos la que queremos
+            document.getElementById(idSeccion).classList.add('activa');
+        }
+    </script>
+
+</body>
+</html>
